@@ -312,6 +312,14 @@ button:focus-visible, input:focus-visible, th:focus-visible{outline:2px solid va
   .score-num{text-align:left;}
 }
 
+
+/* ---------- Visibility Breakdown + Head to Head, side by side ---------- */
+.split-two{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;}
+@media(max-width:860px){.split-two{grid-template-columns:1fr;}}
+.split-col{background:var(--white);border:1px solid #e4e2d3;border-radius:10px;padding:24px 22px;display:flex;flex-direction:column;height:100%;}
+.split-col .section-head{margin-bottom:18px;}
+.split-col .hbar-row{grid-template-columns:120px 1fr 48px;}
+
 /* ---------- Brand Reputation (blue section) ---------- */
 section.block.brand-rep{background:var(--blue);}
 section.block.brand-rep .section-head .section-eyebrow{color:var(--green);}
@@ -405,26 +413,25 @@ section.alt.score-blue .score-formula{background:rgba(255,255,255,0.08);color:#D
 
 <section>
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-eyebrow">Visibility Breakdown</div>
-      <h2 class="section-title">Share of AI Visibility</h2>
-      <p class="section-desc">Share of tracked AI citation volume across the 5 brands in this competitive set.</p>
+    <div class="split-two">
+      <div class="split-col">
+        <div class="section-head">
+          <div class="section-eyebrow">Visibility Breakdown</div>
+          <h2 class="section-title">Share of AI Visibility</h2>
+          <p class="section-desc">Share of tracked AI citation volume across the 5 brands in this competitive set.</p>
+        </div>
+        <div id="sov-chart"></div>
+      </div>
+      <div class="split-col">
+        <div class="section-head">
+          <div class="section-eyebrow">Head to Head</div>
+          <h2 class="section-title">Top Topics — Head to Head</h2>
+          <p class="section-desc">The highest-volume tracked topics, ranked by total monthly search volume across all shared prompts, with each brand's citation share.</p>
+        </div>
+        <div class="topics-chart" id="topics-chart"></div>
+        <div class="chip-legend" id="topics-legend" style="margin-top:18px;"></div>
+      </div>
     </div>
-    <div style="max-width:640px;">
-      <div id="sov-chart"></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-eyebrow">Head to Head</div>
-      <h2 class="section-title">Top Topics — Head to Head</h2>
-      <p class="section-desc">The highest-volume tracked topics, ranked by total monthly search volume across all shared prompts, with each brand's citation share.</p>
-    </div>
-    <div class="topics-chart" id="topics-chart"></div>
-    <div class="chip-legend" id="topics-legend" style="margin-top:18px;"></div>
   </div>
 </section>
 
