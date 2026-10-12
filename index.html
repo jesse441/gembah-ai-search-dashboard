@@ -872,7 +872,6 @@ function el(tag, attrs, children){
 /* ---------------- Spotlight ---------------- */
 (function renderSpotlight(){
   const top = DATA.gembah_cocitation_top[0];
-  const rest = DATA.gembah_cocitation_top.slice(1, 7);
   const card = document.getElementById('spotlight-card');
   card.appendChild(el('div', {}, [
     el('div', {class:'spotlight-domain'}, [top[0]]),
@@ -881,10 +880,6 @@ function el(tag, attrs, children){
   ]));
   const detail = el('div', {class:'spotlight-detail'});
   detail.appendChild(el('p', {}, [`${top[0]} is the highest-volume third-party domain appearing in the same AI answers as Gembah — mostly instructional/tutorial video content that AI Overviews pull in alongside Gembah's manufacturing guides. It appears across nearly every tracked brand's citations, so it isn't a competitive threat on its own, but it signals the kind of explainer-video content AI engines favor for these prompts.`]));
-  const table = el('table', {class:'mini-source-table'});
-  table.appendChild(el('tr', {}, [el('th',{},['Domain']), el('th',{},['Co-citations w/ Gembah'])]));
-  rest.forEach(([d,c]) => table.appendChild(el('tr', {}, [el('td',{},[d]), el('td',{},[String(c)])])));
-  detail.appendChild(table);
   card.appendChild(detail);
 })();
 
